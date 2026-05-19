@@ -8,7 +8,7 @@ EXPLICAÇÃO DO JAVASCRIPT
 // que ainda não existem na página.
 document.addEventListener('DOMContentLoaded', () => {
 
-    // 1. SELECIONANDO O ELEMENTO
+    // 1. SELECIONANDO O ELEMENTOO
     // ----------------------------
     // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
     // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.

@@ -1,3 +1,4 @@
+//Codigo
 document.addEventListener('DOMContentLoaded', () => {
     
     const blocoDeNotas = document.getElementById('blocoDeNotas');
