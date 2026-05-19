@@ -1,58 +1,39 @@
-# blocoDeNotas
-Projeto Piloto: Um Bloco de Notas Simples para Ensinar eventListeners e localStorage
+﻿# Bloco & Dino
 
-EXPLICAÇÃO DO JAVASCRIPT
+Um projeto Web simples com duas funcionalidades integradas:
 
-// Espera o conteúdo da página carregar completamente antes de executar o script.
-// É uma boa prática para evitar erros de JavaScript tentando acessar elementos
-// que ainda não existem na página.
-document.addEventListener('DOMContentLoaded', () => {
+- **Bloco de notas** com salvamento automático usando `localStorage`.
+- **Jogo do dinossauro** em canvas, com pontuação e melhor recorde.
 
-    // 1. SELECIONANDO O ELEMENTOO
-    // ----------------------------
-    // Primeiro, precisamos de uma referência ao nosso elemento <textarea>.
-    // Usamos 'document.getElementById' para pegar o elemento pelo 'id' que definimos no HTML.
-    const blocoDeNotas = document.getElementById('blocoDeNotas');
+## Recursos
 
-    // 2. CARREGANDO DADOS DO LOCALSTORAGE
-    // ------------------------------------
-    // O 'localStorage' é um recurso do navegador que permite salvar informações
-    // que persistem mesmo depois que o navegador é fechado.
-    // Usamos 'localStorage.getItem()' para buscar um item salvo.
-    // Aqui, estamos procurando por um item que salvamos com a chave 'minhaNota'.
-    const notaSalva = localStorage.getItem('minhaNota');
+- Anotações são salvas automaticamente enquanto o usuário digita.
+- Limpeza de texto e exportação para `.txt` ou `.html`.
+- Alternância entre tema claro e tema escuro.
+- Jogo com controle por tecla `Espaço` ou `Seta para cima`.
+- Placar ativo e melhor pontuação armazenada no navegador.
 
-    // Verificamos se encontramos alguma nota salva.
-    if (notaSalva) {
-        // Se 'notaSalva' não for nulo (ou seja, existe algo salvo),
-        // nós colocamos o valor salvo de volta no nosso 'blocoDeNotas'.
-        blocoDeNotas.value = notaSalva;
-    }
+## Estrutura do projeto
 
-    // 3. ADICIONANDO UM 'EVENTLISTENER'
-    // ---------------------------------
-    // Agora, a parte principal: queremos fazer algo sempre que o usuário digitar.
-    // O 'addEventListener' é como um "ouvinte" que fica esperando por uma ação específica.
-    //
-    // Parâmetros do addEventListener:
-    //   - O primeiro é o TIPO DE EVENTO que queremos ouvir. 'input' é disparado
-    //     toda vez que o valor do <textarea> muda (ou seja, o usuário digita, apaga, etc).
-    //   - O segundo é a FUNÇÃO que será executada quando o evento acontecer.
-    //     Esta função é chamada de "callback".
-    blocoDeNotas.addEventListener('input', () => {
-        // 4. SALVANDO DADOS NO LOCALSTORAGE
-        // -----------------------------------
-        // Dentro da nossa função de callback, pegamos o valor atual do bloco de notas
-        // e o salvamos no localStorage.
-        // Usamos 'localStorage.setItem()' para isso.
-        //
-        // Parâmetros do setItem:
-        //   - O primeiro é a CHAVE (o "nome" do nosso dado). Usaremos a mesma chave 'minhaNota'.
-        //   - O segundo é o VALOR que queremos salvar. 'blocoDeNotas.value' contém o texto
-        //     que está atualmente na área de texto.
-        localStorage.setItem('minhaNota', blocoDeNotas.value);
+- `index.html` - página principal com a interface do bloco de notas e do jogo.
+- `style.css` - estilos para a aparência do app, responsivo e com temas.
+- `script.js` - lógica do bloco de notas, jogo, temas e navegação entre abas.
+- `README.md` - informações do projeto.
 
-        console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
-    });
+## Uso
 
-});
+1. Abra `index.html` no navegador.
+2. No painel "Bloco de Notas":
+   - Digite suas anotações.
+   - Use "Limpar" para apagar tudo.
+   - Use "Exportar .txt" ou "Exportar .html" para baixar o conteúdo.
+3. No painel "Jogo do Dinossauro":
+   - Clique em "Começar" para iniciar.
+   - Pressione `Espaço` ou `Seta para cima` para pular.
+   - Clique em "Reiniciar" para começar de novo.
+
+## Observações
+
+- A melhor pontuação é salva automaticamente no `localStorage`.
+- O tema escolhido também é lembrado entre visitas.
+- O jogo se torna progressivamente mais rápido ao longo da partida.
