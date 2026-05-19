@@ -3,18 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloco de Notas Moderno</title>
+    <title>Bloco & Dino</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main class="app-shell">
+        <header class="hero">
+            <div>
+                <span class="eyebrow">Web II</span>
+                <h1>Bloco de Notas + Jogo do Dinossauro</h1>
+                <p>Salve seus pensamentos e divirta-se com um corredor jurássico.</p>
+            </div>
+            <button id="temaBtn" type="button" class="theme-toggle">Tema Claro</button>
+        </header>
 
-    <div class="container">
-        <h1>Bloco Storage</h1>
-        <p>Seus pensamentos são salvos automaticamente no seu navegador.</p>
+        <nav class="tabs" role="tablist">
+            <button class="tab-button active" data-panel="notesPanel" role="tab" aria-selected="true">Bloco de Notas</button>
+            <button class="tab-button" data-panel="gamePanel" role="tab" aria-selected="false">Jogo do Dinossauro</button>
+        </nav>
 
-        
-        <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..."></textarea>
-    </div>
+        <section id="notesPanel" class="panel active" role="tabpanel">
+            <div class="toolbar">
+                <div class="toolbar-group">
+                    <button id="limparBtn" type="button">Limpar</button>
+                    <button id="exportarBtn" type="button">Exportar .txt</button>
+                    <button id="exportarHtmlBtn" type="button">Exportar .html</button>
+                </div>
+                <span id="status">Carregando...</span>
+            </div>
+
+            <textarea id="blocoDeNotas" placeholder="Comece a digitar aqui..." aria-label="Bloco de notas"></textarea>
+        </section>
+
+        <section id="gamePanel" class="panel" role="tabpanel" aria-hidden="true">
+            <div class="game-header">
+                <div>
+                    <h2>Jogo do Dinossauro</h2>
+                    <p>Use Espaço ou Seta para cima para pular cactos. O jogo fica mais rápido com o tempo.</p>
+                </div>
+                <div class="game-buttons">
+                    <button id="startGameBtn" type="button">Começar</button>
+                    <button id="resetGameBtn" type="button">Reiniciar</button>
+                </div>
+            </div>
+
+            <div class="game-board">
+                <canvas id="gameCanvas" width="720" height="220" aria-label="Canvas do Jogo do Dinossauro"></canvas>
+                <div class="scoreboard">
+                    <div>Pontos: <strong id="score">0</strong></div>
+                    <div>Melhor: <strong id="highScore">0</strong></div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="script.js"></script>
 </body>
